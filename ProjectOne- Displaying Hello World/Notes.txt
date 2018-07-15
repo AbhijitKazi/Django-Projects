@@ -1,0 +1,56 @@
+We will be starting with 'How to install Django' and then we shall proceed to 'Creating the first project'
+
+So to install Django you'll have to have python installed into your system.
+To install python go to https://www.python.org/getit/
+  **Python 3.7.0 is the latest. I'm not sure they released a 32bit version or not. Also there are a lot of deprecations in the libraries
+    So if you want to learn python as well go for Version 2.7. It has both 32bit(x86) and 64bit(x64) versions.
+After installation is completed, add the path to the folder 'Python27' (That python version2.7) to Path variable in Environment varibles.
+    **If you're not sure how to get path variables, here it is "Right Click on 'My Computer/This PC'>Properties>Advanced system settings>Advanced>Environment Variables>Variable>Path
+    Add a ';' and paste the folder path.
+Open Command Prompt in Admin and type "easy_install --version". If CMD doesn't recognize the command go to the Python folder and open the 'Scripts' folder. Copy the path and add it into the path variable
+Now your basics are done. You're ready to play.
+
+****The Above steps are not required for Linux, as Python comes pre installed in Linux****
+
+Installing Django
+
+Step 1: type 'easy_install django'
+      *This will install the latest version of Django compatible with your device. Django 2.0.7 is latest however it does not work with a 32 bit machine
+Step 2: After installation is complete type 'django-admin --version'
+      *This will show you the version installed in your machine which would also mean that Django is running good.
+Step 3: Now go to the folder you want to create your project in. Hold Shift and Right-Click. Click on 'Open command window here'
+Step 4: Type 'django-admin startproject <project_name>'
+Step 5: Change the directory using 'cd <project_name>'
+Step 6: Type 'python manage.py migrate' See Django documentation https://docs.djangoproject.com/en/2.0/topics/migrations/
+Step 7:Type 'python manage.py runserver'
+      *Go to your browser and type the url 'http://127.0.0.1:8000/' If everything is fine you'll see a "Congratulations"
+      *The IP address 127.0.0.1 is also called Loopback IP or Localhost
+Step 8: Do not close CMD.
+      
+Now you're ready to code. I prefer PyCharm for the coding. But you can use any IDE or text editor like notepad or Notepad++.
+For beginners it is better to use PyCharm.
+
+Coding the first project.
+
+Step 1: Open the file 'urls.py' and add a path
+    a. If it is a landing page without any parent page add the list item "path('', views.new_page, name='new_page')" in  the urlpatterns list.
+    b. If it is a child page add the list item as "path('parent/', views.new_page, name='new_page')"
+Step 2: Create a python file 'views.py' in the project directory
+Step 3: Use the following code to connect the url to the view
+            def new_page(request):
+              return render(request, 'new_page.html')
+              
+        *This will show render as error. Click on render and then click on the little red bulb that'll appear(only in pycharm).
+        *Click on 'Import from Django'
+        *For others type "from django.shortcuts import render" at the top of the file
+Step 4: Go to 'urls.py' and add "from . import views" at the top of the file
+Step 5: Create a directory 'templates' within the scope of the parent directory.
+Step 6: Create and HTML file 'new_page.html'
+Step 7: Type "Hello World" within the body
+Step 8: Go to 'settings.py'
+Step 9: Scroll down to 'TEMPLATES' list
+Step 10: In 'DIRS':[], add the name of the folder containing the html files. In this case, templates
+        * 'DIRS':['templates']
+Step 11: Run server using command 'python manage.py runserver' in cmd to check if there are any errors
+Step 12: Run the IP http://127.0.0.1:8000
+Step 13: And the First project is done.
