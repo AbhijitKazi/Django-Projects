@@ -1,3 +1,5 @@
-This project is a detailed one.
+(This Project is not complete yet. There might be parts that doesn't work)
+(The Bootstrap part is taken from Startbootstrap)
 
-A simple site designed with Django and Bootstrap at the front end.
+This project is a detailed one.
+A simple website designed with Django and Bootstrap at the front end.
