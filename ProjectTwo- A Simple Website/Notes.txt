@@ -1,5 +1,25 @@
-(This Project is not complete yet. There might be parts that doesn't work)
-(The Bootstrap part is taken from Startbootstrap)
+Working with a site is not different than the first project except for adding the static files.
+Adding static files in a Django project is different than adding those files in any other simple php project
 
-This project is a detailed one.
-A simple website designed with Django and Bootstrap at the front end.
+Here are the steps to add static(CSS, JS, SCSS, Image) files in a Django Website
+
+Step 1. Follow the steps of the "Hello World" Project to set up Django and conf the view of a template
+        https://github.com/AbhijitKazi/Django-Projects/blob/master/ProjectOne-%20Displaying%20Hello%20World/Notes.txt
+Step 2. Create a directory 'static' in the same level as manage.py and add all the CSS files in a folder /static/css
+Step 3. Go to settings.py and scroll to the bottom of the file.
+Step 4. Find "STATIC_URL". Define it as "STATIC_URL = '/static/'"
+Step 5. Add the following code below "STATIC_URL"
+        STATICFILES_DIRS = (
+            os.path.join(BASE_DIR, 'static'),
+            )
+         STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+Step 6. Go to the html page and add the following line at the top of the file
+        {% load static %}           ***if you're using Django 1.9 or below you'll have to add {% load staticfiles %}
+Step 7. Go to stylesheet linking lines and replace the lines as shown
+        The lines in basic HTML is given as
+            "<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">"
+        Replace it by
+            "<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">"
+Step 8. It should be used with every static file. Image, JS, CSS or SCSS
+        "<link href="{% static 'path/file.css' %}" rel="stylesheet" type="text/css">"  --- For CSS
+        "<script src="{% static 'path/file.js' %}"></script>"  ---For JavaScript
