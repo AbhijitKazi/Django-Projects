@@ -1,0 +1,14 @@
+Adding URLS is just rendering another template
+
+Here are the steps that will enable you to add urls just like pure HTMl hyperlinks
+
+Step 1: Go to the file 'urls.py' and add the folowing code to add the urls
+        in the list 'urlpatterns'
+            path('page', views.page, name='page')
+Step 2: Now go to the file 'views.py' to define the view
+            def page(request):
+                return render(request, 'page.html')
+        ***This will render the html page
+Step 3: Go to the link and
+        replace <a href = "page.html">Page</a>
+        by      <a href = "{% url 'page' %}">Page</a>
